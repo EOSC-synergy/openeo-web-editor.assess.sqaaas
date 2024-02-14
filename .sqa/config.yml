@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/Open-EO/openeo-web-editor:
+      branch: master
+      repo: https://github.com/Open-EO/openeo-web-editor
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/Open-EO/openeo-web-editor git:
+        commands:
+        - /usr/bin/env sh .sqa/script.squirrely-malachite-angora.sh
+        container: qc.acc_tasty-russet-albatross
+  QC.Doc:
+    repos:
+      github.com/Open-EO/openeo-web-editor find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.shaggy-tan-shrimp.sh
+        container: qc.doc_silly-cinnamon-donkey
+      github.com/Open-EO/openeo-web-editor git:
+        commands:
+        - /usr/bin/env sh .sqa/script.lovely-purple-malamute.sh
+        container: qc.doc_beady-amethyst-opossum
+  QC.Lic:
+    repos:
+      github.com/Open-EO/openeo-web-editor licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.droopy-ruby-spoonbill.sh
+        container: qc.lic_chummy-plum-quetzal
+  QC.Ver:
+    repos:
+      github.com/Open-EO/openeo-web-editor get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.leaky-firebrick-jackal.sh
+        container: qc.ver_bluesy-tan-crab
+timeout: 5400
