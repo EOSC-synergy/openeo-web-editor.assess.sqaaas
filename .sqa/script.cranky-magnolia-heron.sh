@@ -5,5 +5,5 @@
 
 (
 cd github.com/Open-EO/openeo-web-editor &&
-    git rev-parse --is-inside-work-tree
+    licensee detect . --confidence 60 --json 
 )

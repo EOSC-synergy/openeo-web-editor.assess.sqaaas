@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     github.com/Open-EO/openeo-web-editor:
       branch: master
@@ -15,28 +15,42 @@ sqa_criteria:
     repos:
       github.com/Open-EO/openeo-web-editor git:
         commands:
-        - /usr/bin/env sh .sqa/script.squirrely-malachite-angora.sh
-        container: qc.acc_tasty-russet-albatross
+        - /usr/bin/env sh .sqa/script.snippy-gamboge-ant.sh
+        container: qc.acc_seedy-black-moth
   QC.Doc:
     repos:
       github.com/Open-EO/openeo-web-editor find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.shaggy-tan-shrimp.sh
-        container: qc.doc_silly-cinnamon-donkey
+        - /usr/bin/env sh .sqa/script.randy-ultramarine-lemur.sh
+        container: qc.doc_tacky-olivine-barb
       github.com/Open-EO/openeo-web-editor git:
         commands:
-        - /usr/bin/env sh .sqa/script.lovely-purple-malamute.sh
-        container: qc.doc_beady-amethyst-opossum
+        - /usr/bin/env sh .sqa/script.greasy-jade-lionfish.sh
+        container: qc.doc_wimpy-wheat-whippet
+      github.com/Open-EO/openeo-web-editor markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.skinny-saffron-collie.sh
+        container: qc.doc_cozy-copper-tetra
   QC.Lic:
     repos:
       github.com/Open-EO/openeo-web-editor licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.droopy-ruby-spoonbill.sh
-        container: qc.lic_chummy-plum-quetzal
+        - /usr/bin/env sh .sqa/script.cranky-magnolia-heron.sh
+        container: qc.lic_sleazy-firebrick-buffalo
+  QC.Sty:
+    repos:
+      github.com/Open-EO/openeo-web-editor hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.ready-turquoise-macaw.sh
+        container: qc.sty_sleazy-wisteria-anteater
+      github.com/Open-EO/openeo-web-editor jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.pretty-white-markhor.sh
+        container: qc.sty_droopy-platinum-ostrich
   QC.Ver:
     repos:
       github.com/Open-EO/openeo-web-editor get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.leaky-firebrick-jackal.sh
-        container: qc.ver_bluesy-tan-crab
+        - /usr/bin/env sh .sqa/script.surly-coral-lemur.sh
+        container: qc.ver_goopy-salmon-cat
 timeout: 5400
